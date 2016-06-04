@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "noImplicitAny": true,
+        "target": "ES5",
+        "jsx": "react",
+        "sourceMap": true
+    }
+}

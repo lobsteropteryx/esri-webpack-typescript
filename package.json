@@ -1,0 +1,37 @@
+{
+  "name": "esri-webpack",
+  "version": "0.0.0",
+  "description": "ESRI JSAPI with Webpack demo",
+  "main": "dist/esri-webpack",
+  "scripts": {
+    "build": "webpack --config ./webpack.config.js",
+    "test": "karma start --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "files": [
+    "dist"
+  ],
+  "author": "Ian Firkin",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-ajax": "~3.1.1",
+    "jasmine-core": "~2.3.4",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "~0.1.12",
+    "karma-dojo": "0.0.1",
+    "karma-ie-launcher": "~0.2.0",
+    "karma-jasmine": "~0.3.5",
+    "karma-jasmine-ajax": "~0.1.12",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-webpack": "^1.7.0",
+    "ts-loader": "^0.8.1",
+    "tslint": "^3.2.1",
+    "typescript": "^1.8.5",
+    "typings": "^1.0.4",
+    "webpack": "^1.12.14"
+  }
+}
