@@ -1,8 +1,8 @@
 {
-  "name": "esri-webpack",
+  "name": "esri-webpack-typescript",
   "version": "0.0.0",
-  "description": "ESRI JSAPI with Webpack demo",
-  "main": "dist/esri-webpack",
+  "description": "ESRI JSAPI with Webpack demo, using TypeScript",
+  "main": "dist/esri-webpack-typescript",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
     "test": "karma start --single-run"
@@ -11,7 +11,7 @@
     "type": "git",
     "url": ""
   },
-  "keywords": [],
+  "keywords": ["ESRI", "webpack", "typescript"],
   "files": [
     "dist"
   ],
