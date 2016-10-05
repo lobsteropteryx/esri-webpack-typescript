@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>esri-webpack-demo</title>
+        <!--esri styles are loaded outside of webpack-->
         <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
         <style>
         html, body, #content {
@@ -15,8 +16,13 @@
 
     <body>
         <div id="content"></div>
+        <!--esri JavaScript must be loaded outside of webpack-->
         <script src="https://js.arcgis.com/3.17/" data-dojo-config="async: true"></script>
         <script>
+            // once the ArcGIS API for JavaScript has loaded
+            // we must use Dojo's require() to load the bundled webpack output
+            // only the Dojo loader will be able to resolve the bundle's references
+            // to "external" dependencies on modules in the esri and dojo packages
             require(["/dist/vendor.bundle.js", "/dist/main.bundle.js"], function (vendor, main) {});
         </script>
     </body>
