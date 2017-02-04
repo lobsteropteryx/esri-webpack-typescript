@@ -5,7 +5,8 @@
   "main": "dist/esri-webpack-typescript",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
-    "test": "karma start --single-run"
+    "test": "karma start --single-run",
+    "postinstall": "typings install"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,6 @@
     "tslint": "^3.2.1",
     "typescript": "^1.8.5",
     "typings": "^1.0.4",
-    "webpack": "^1.12.14"
+    "webpack": "^2.2.0"
   }
 }

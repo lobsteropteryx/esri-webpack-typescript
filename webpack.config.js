@@ -2,32 +2,37 @@ var webpack = require("webpack");
 
 module.exports = {
     entry: {
+        // entry point for your application code
         main: [
-            './src/app/main.ts' // entry point for your application code
+            './src/app/main.ts'
         ],
-        vendor: [
-            // put your third party libs here
-        ]
+        // put your third party libs here
+        // vendor: []
     },
     output: {
         filename: './dist/[name].bundle.js',
         publicPath: './',
-        libraryTarget: "amd"
+        // the bundled output will be loaded by the Dojo AMD loader
+        // that is included in the ArcGIS API for JavaScript
+        libraryTarget: 'amd'
     },
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: ''
+                use: [
+                    'ts-loader'
+                ]
             },
             // css
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                use: [
+                    'style-loader!css-loader'
+                ]
             }
         ]
     },
