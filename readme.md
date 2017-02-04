@@ -1,4 +1,4 @@
-# esri-webpack
+# esri-webpack-typescript
 
 ESRI JSAPI with Webpack demo, using TypeScript
 
