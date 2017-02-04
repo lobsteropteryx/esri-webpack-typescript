@@ -2,9 +2,10 @@
   "name": "esri-webpack-typescript",
   "version": "0.0.0",
   "description": "ESRI JSAPI with Webpack demo, using TypeScript",
-  "main": "dist/esri-webpack-typescript",
+  "main": "dist/main.bundle.js",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
+    "start": "webpack-dev-server --hot --open",
     "test": "karma start --single-run",
     "postinstall": "typings install"
   },
@@ -12,7 +13,11 @@
     "type": "git",
     "url": ""
   },
-  "keywords": ["ESRI", "webpack", "typescript"],
+  "keywords": [
+    "ESRI",
+    "webpack",
+    "typescript"
+  ],
   "files": [
     "dist"
   ],
@@ -34,6 +39,7 @@
     "tslint": "^3.2.1",
     "typescript": "^1.8.5",
     "typings": "^1.0.4",
-    "webpack": "^2.2.0"
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "2.2.0"
   }
 }

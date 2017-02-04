@@ -60,5 +60,12 @@ module.exports = {
             callback();
         }
     ],
+    devServer: {
+        contentBase: './dist',
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        port: 8000
+    },
     devtool: 'source-map'
 };
