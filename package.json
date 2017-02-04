@@ -5,7 +5,8 @@
   "main": "dist/esri-webpack-typescript",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
-    "test": "karma start --single-run"
+    "test": "karma start --single-run",
+    "postinstall": "typings install"
   },
   "repository": {
     "type": "git",
