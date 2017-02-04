@@ -1,4 +1,5 @@
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -10,8 +11,8 @@ module.exports = {
         // vendor: []
     },
     output: {
-        filename: './dist/[name].bundle.js',
-        publicPath: './',
+        path: '/dist',
+        filename: '[name].bundle.js',
         // the bundled output will be loaded by the Dojo AMD loader
         // that is included in the ArcGIS API for JavaScript
         libraryTarget: 'amd'
@@ -40,6 +41,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: Infinity
+        }),
+        new HtmlWebpackPlugin({
+            inject: false, // we need to use the dojo loader
+            jsapiVersion: 3.17,
+            template: 'src/app/index.ejs'
         })
     ],
     externals: [
@@ -54,5 +60,12 @@ module.exports = {
             callback();
         }
     ],
+    devServer: {
+        contentBase: './dist',
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        port: 8000
+    },
     devtool: 'source-map'
 };
