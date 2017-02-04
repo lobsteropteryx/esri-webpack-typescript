@@ -1,33 +1,39 @@
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
+        // entry point for your application code
         main: [
-            './src/app/main.ts' // entry point for your application code
+            './src/app/main.ts'
         ],
-        vendor: [
-            // put your third party libs here
-        ]
+        // put your third party libs here
+        // vendor: []
     },
     output: {
-        filename: './dist/[name].bundle.js',
-        publicPath: './',
-        libraryTarget: "amd"
+        path: '/dist',
+        filename: '[name].bundle.js',
+        // the bundled output will be loaded by the Dojo AMD loader
+        // that is included in the ArcGIS API for JavaScript
+        libraryTarget: 'amd'
     },
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: ''
+                use: [
+                    'ts-loader'
+                ]
             },
             // css
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                use: [
+                    'style-loader!css-loader'
+                ]
             }
         ]
     },
@@ -35,6 +41,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: Infinity
+        }),
+        new HtmlWebpackPlugin({
+            inject: false, // we need to use the dojo loader
+            jsapiVersion: 3.17,
+            template: 'src/app/index.ejs'
         })
     ],
     externals: [
@@ -49,5 +60,12 @@ module.exports = {
             callback();
         }
     ],
+    devServer: {
+        contentBase: './dist',
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        port: 8000
+    },
     devtool: 'source-map'
 };

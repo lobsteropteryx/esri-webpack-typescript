@@ -1,20 +1,22 @@
-var webpack = require("webpack");
+var webpack = require('webpack');
 
 module.exports = {
     entry: {},
     output: {
         filename: './src/test/[name].bundle.js',
         publicPath: './',
-        libraryTarget: "amd"
+        libraryTarget: 'amd'
     },
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader'
+                use: [
+                    'ts-loader'
+                ]
             }
         ]
     },
