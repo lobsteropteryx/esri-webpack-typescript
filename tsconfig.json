@@ -5,5 +5,10 @@
         "target": "ES5",
         "jsx": "react",
         "sourceMap": true
-    }
+    },
+	"files": [
+		"typings/index.d.ts",
+		"src/app/main.ts",
+		"src/app/myClass.ts"
+	]
 }
