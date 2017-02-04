@@ -44,7 +44,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             inject: false, // we need to use the dojo loader
-            jsapiVersion: 3.17,
+            jsapiVersion: '4.0',
             template: 'src/app/index.ejs'
         })
     ],
