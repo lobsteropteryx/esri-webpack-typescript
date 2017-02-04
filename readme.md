@@ -8,7 +8,6 @@ Uses TypeScript compiler and test setup using karma.
 
 ```
 npm install
-typings install
-npm run build
-npm run test
+npm start
+npm test
 ```
